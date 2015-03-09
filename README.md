@@ -1,6 +1,6 @@
 Sorting
 =======
-In this assignment you will write a program that tests 4 different sorting algorithms: Bubble, Selection, Insterion, and Merge sort. You will write a Stopwatch class that uses System.nanotime() to measure the time each algorithm takes to sort 1000, 2000, 4000, and 8000 integers.
+In this assignment you will write a program that tests 4 different sorting algorithms: Bubble, Selection, Insertion, and Merge sort. You will write a Stopwatch class that uses System.nanotime() to measure the time each algorithm takes to sort 1000, 2000, 4000, and 8000 integers.
 
 Suggested steps to complete this assignment
 -------------------------------------------
