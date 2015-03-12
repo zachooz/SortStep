@@ -72,27 +72,16 @@ private void merge(int[] a, int first, int mid, int last){
 }
 
   public void mergeSort(int[] a, int first, int last){
-    if(last-first>2){
-      //System.out.println(first + " " + last);
-      mergeSort(a,first,last/2-1);
-      mergeSort(a,last/2,last);
+    if (first < last) {
+      // Get the index of the element which is in the middle
+      int middle = first + (last - first) / 2;
+      // Sort the left side of the array
+      mergeSort(a,first, middle);
+      // Sort the right side of the array
+      mergeSort(a, middle + 1, last);
+      // Combine them both
+      merge(a, first, middle+1, last);
     }
-    System.out.println(first + " " + last);
-    merge(a,first,(last-first)/2,last);
-    /*
-    while(length < last-first){
-      for(int i = 0; i < a.length-length-1; i+=length)
-        merge(a,i,i+length/2,i+length-1);
-      length*=2;
-
-    }
-     for(int i = 0; i < a.length-1; i+=2)
-       merge(a,i,i+1,i+1);
-     for(int i = 0; i < a.length-3; i+=4)
-       merge(a,i,i+2,i+3);
-    */
-    
-
   }
 }
 

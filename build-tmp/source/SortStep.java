@@ -70,7 +70,6 @@ public void mergeSortTest()
   watch.reset();
   watch.start();
   mySorts.mergeSort(myArray,0,myArray.length-1);
-  System.out.println(Arrays.toString(myArray));
   watch.stop();
   System.out.println("Merge Sort took " +watch.elapsedTime()/1000 + " microseconds");
 }
