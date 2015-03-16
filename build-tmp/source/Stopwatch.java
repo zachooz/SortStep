@@ -12,12 +12,12 @@ public class Stopwatch {
     /* stops keeping track of time */
   {
     stop=System.nanoTime();
-    elapsed=stop-start;
+    
   }
   public long elapsedTime()
     /* uses System.out to display the elapsed time in seconds */
   {
-    // Replace the following line with your code
+    elapsed=stop-start;
     return elapsed;
   }
   public void reset()

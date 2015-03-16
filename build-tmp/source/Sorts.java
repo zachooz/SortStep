@@ -36,18 +36,18 @@ public class Sorts{
     int temp;
     if(list.length<=1)
       return;
+
     for(int i = 1; i<list.length; i++){
       for(int a=i; a>0; a--){
         if(list[a-1]<list[a])
           break;
-        temp=list[a];
+        temp=list[a-1];
         list[a-1]=list[a];
-        list[a]=list[a-1];
+        list[a]=temp;
       }
-
     }
     //System.out.println(Arrays.toString(list));
-  }
+}
 
 private void merge(int[] a, int first, int mid, int last){
   int[] temp = new int[last-first+1];
@@ -56,10 +56,10 @@ private void merge(int[] a, int first, int mid, int last){
   int m = mid;
   int l = last;
   while(temp[temp.length-1]==0){
-      if((f<mid) && (m>last || a[f] < a[m])){
+    if((f<mid) && (m>last || a[f] < a[m])){
       temp[index]=a[f];
       f++;
-      } else {
+    } else {
       temp[index]=a[m];
       m++;
     }
@@ -83,5 +83,34 @@ private void merge(int[] a, int first, int mid, int last){
       merge(a, first, middle+1, last);
     }
   }
-}
 
+  public void quickSort(int[] a, int low, int high){
+    int start = low;
+    int finish = high;
+    int comparator = a[(high+low)/2];
+    int temp;
+    while(start<=finish){
+      while(a[start]<comparator){
+        start++;
+      }
+      while(a[finish]>comparator){
+        finish--;
+      }
+      //System.out.println(start+ " " + finish);
+      if(start<=finish){
+        temp=a[start];
+        a[start]=a[finish];
+        a[finish]=temp;
+        start++;
+        finish--;
+      }
+    }
+    //System.out.println(Arrays.toString(a));
+    if(low<finish){
+      quickSort(a,low,finish);
+    }
+    if(high>start){
+      quickSort(a,start,high);
+    }
+  }
+}
