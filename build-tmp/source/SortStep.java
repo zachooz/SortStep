@@ -30,6 +30,7 @@ public void setup()
   insertionSortTest();
   mergeSortTest();
   quickSortTest();
+  shellSortTest();
 }
 public void draw(){
   //empty!
@@ -86,7 +87,18 @@ public void quickSortTest()
   mySorts.quickSort(myArray,0,myArray.length-1);
   watch.stop();
   //System.out.println(Arrays.toString(myArray));
-  System.out.println("Quick sort took " +watch.elapsedTime()/1000 + " microseconds");
+  System.out.println("Quick Sort took " +watch.elapsedTime()/1000 + " microseconds");
+}
+public void shellSortTest()
+{
+  System.out.println("Testing Shell Sort");
+  fillArray(numInts, largestInt);
+  watch.reset();
+  watch.start();
+  mySorts.shellSort(myArray);
+  watch.stop();
+  //System.out.println(Arrays.toString(myArray));
+  System.out.println("Shell Sort took " +watch.elapsedTime()/1000 + " microseconds");
 }
 private void fillArray(int numInts, int largestInt)
 {

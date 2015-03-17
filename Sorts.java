@@ -47,29 +47,29 @@ public class Sorts{
       }
     }
     //System.out.println(Arrays.toString(list));
-}
+  }
 
-private void merge(int[] a, int first, int mid, int last){
-  int[] temp = new int[last-first+1];
-  int index=0;
-  int f = first;
-  int m = mid;
-  int l = last;
-  while(temp[temp.length-1]==0){
-    if((f<mid) && (m>last || a[f] < a[m])){
-      temp[index]=a[f];
-      f++;
-    } else {
-      temp[index]=a[m];
-      m++;
+  private void merge(int[] a, int first, int mid, int last){
+    int[] temp = new int[last-first+1];
+    int index=0;
+    int f = first;
+    int m = mid;
+    int l = last;
+    while(temp[temp.length-1]==0){
+      if((f<mid) && (m>last || a[f] < a[m])){
+        temp[index]=a[f];
+        f++;
+      } else {
+        temp[index]=a[m];
+        m++;
+      }
+          index++;
     }
-        index++;
+    for(int i = 0; i<temp.length; i++){
+      a[first+i]=temp[i];
+    }
+     //System.out.println(Arrays.toString(temp));
   }
-  for(int i = 0; i<temp.length; i++){
-    a[first+i]=temp[i];
-  }
-   //System.out.println(Arrays.toString(temp));
-}
 
   public void mergeSort(int[] a, int first, int last){
     if (first < last) {
@@ -111,6 +111,38 @@ private void merge(int[] a, int first, int mid, int last){
     }
     if(high>start){
       quickSort(a,start,high);
+    }
+  }
+
+  public void shellSort(int[] a){
+    int jump = (a.length/2);
+    int temp;
+    while(jump>0){
+      if(jump>2){
+        for(int i = 0; i<a.length-jump; i++){
+          if(a[i]>a[i+jump]){
+            temp=a[i];
+            a[i]=a[i+jump];
+            a[i+jump]=temp;
+          }
+        }
+      } else {
+        for(int i = 1; i<a.length; i++){
+          for(int b=i; b>0; b--){
+            if(a[b-1]<a[b])
+              break;
+            temp=a[b-1];
+            a[b-1]=a[b];
+            a[b]=temp;
+          }
+        } 
+      }
+
+      if(jump>2){
+        jump=jump/2;
+      }else{
+        jump--;
+      }
     }
   }
 }
