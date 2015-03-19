@@ -4,17 +4,14 @@ import java.util.Arrays;
 public class Sorts{
 
   public void selectionSort(int[] list){
-    int temp;
-    int index;
-    for(int i = 0; i<list.length; i++){
-      temp = list[i];
-      index = i;
-      for(int a = i; a<list.length; a++){
-        if(list[a]<temp){
+    int index=0;
+    for(int i = 0; i<list.length-1; i++){
+      for(int a = i+1; a<list.length; a++){
+        if(list[a]<list[index]){
           index = a;
-          temp = list[a];
         }
       }
+      int temp = list[index];
       list[index] = list[i];
       list[i] = temp;
     }
@@ -52,18 +49,18 @@ public class Sorts{
   private void merge(int[] a, int first, int mid, int last){
     int[] temp = new int[last-first+1];
     int index=0;
-    int f = first;
-    int m = mid;
-    int l = last;
-    while(temp[temp.length-1]==0){
-      if((f<mid) && (m>last || a[f] < a[m])){
+    int f = first;//first index
+    int m = mid;//first index of 2nd half
+    int l = last;//last index
+    while(temp[temp.length-1]==0){//while temp array isn't yet filled
+      if((f<mid) && (m>last || a[f] < a[m])){//if first is less or second array gone
         temp[index]=a[f];
         f++;
-      } else {
+      } else { //if first gone or second less
         temp[index]=a[m];
         m++;
       }
-          index++;
+      index++;
     }
     for(int i = 0; i<temp.length; i++){
       a[first+i]=temp[i];

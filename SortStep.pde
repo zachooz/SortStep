@@ -1,5 +1,5 @@
 import java.util.Arrays;
-private int numInts = 10000;
+private int numInts = 1000;
 private int largestInt = numInts;
 private int [] myArray= new int[numInts];
 private Stopwatch watch = new Stopwatch();
