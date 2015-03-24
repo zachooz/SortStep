@@ -28,6 +28,7 @@ public void setup()
   bubbleSortTest();
   selectionSortTest();
   insertionSortTest();
+  insertionSortTest();
   mergeSortTest();
   quickSortTest();
   shellSortTest();
@@ -102,9 +103,9 @@ public void shellSortTest()
 }
 private void fillArray(int numInts, int largestInt)
 {
-  for (int loop = 0; loop < myArray.length; loop++)
+  for (int index = 0; index < myArray.length; index++)
   {
-    myArray[loop] = (int)(Math.random()*largestInt + 1);
+    myArray[index] = (int)(Math.random()*largestInt + 1);
   }
 }
 

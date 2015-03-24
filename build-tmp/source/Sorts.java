@@ -4,6 +4,7 @@ import java.util.Arrays;
 public class Sorts{
 
   public void selectionSort(int[] list){
+
     int index=0;
     for(int i = 0; i<list.length-1; i++){
       for(int a = i+1; a<list.length; a++){
@@ -51,8 +52,7 @@ public class Sorts{
     int index=0;
     int f = first;//first index
     int m = mid;//first index of 2nd half
-    int l = last;//last index
-    while(temp[temp.length-1]==0){//while temp array isn't yet filled
+    while(f<mid || m<=last){//while temp array isn't yet filled
       if((f<mid) && (m>last || a[f] < a[m])){//if first is less or second array gone
         temp[index]=a[f];
         f++;
